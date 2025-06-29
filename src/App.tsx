@@ -202,7 +202,7 @@ function App() {
           {/* Left Content */}
           <div className="lg:col-span-1 space-y-8 animate-fade-in">
             <div className="space-y-6">
-              <h1 className={`text-6xl lg:text-7xl font-bold ${themeClasses.text} leading-tight`}>
+              <h1 className={`text-6xl lg:text-7xl font-bold ${themeClasses.text} leading-tight hidden`}>
                 Hello.
               </h1>
               <div className="w-16 h-1 bg-gradient-to-r from-orange-600 to-red-600"></div>
