@@ -19,7 +19,8 @@ import {
   Stethoscope,
   Users,
   Calendar,
-  Star
+  Star,
+  FileUser
 } from 'lucide-react';
 
 function App() {
@@ -539,8 +540,8 @@ function App() {
               onClick={() => scrollToSection('contact')}
               className={`${isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-orange-600 hover:bg-gray-900 text-white'} px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center group shadow-xl hover:shadow-2xl transform hover:scale-105`}
             >
-              <a href="public/saugatGiri.pdf" target='_blank'>Download CV</a>
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <a href="/saugatGiri.pdf" target='_blank'>Download CV</a>
+              <FileUser className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
               </div>
 
