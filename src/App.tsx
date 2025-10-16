@@ -128,7 +128,7 @@ function App() {
   return (
     <div className={`min-h-screen transition-all duration-500 ${themeClasses.bg}`}>
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      <nav className={`hidden md:block fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled ? `${themeClasses.navBg} backdrop-blur-md shadow-lg` : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -225,7 +225,7 @@ function App() {
             </div>
 
             {/* Rotating Badge - Positioned below student info */}
-            <div className="flex justify-start">
+            <div className="flex md:justify-start sm:justify-center">
               <div className="rotating-badge relative">
                 <svg className="w-32 h-32" viewBox="0 0 120 120">
                   <defs>
@@ -234,9 +234,9 @@ function App() {
                       d="M 60, 60 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
                     />
                   </defs>
-                  <text className={`text-xs font-medium ${isDarkMode ? 'fill-white' : 'fill-gray-800'}`}>
+                  <text className={`text-sm font-small ${isDarkMode ? 'fill-white' : 'fill-gray-800'}`}>
                     <textPath href="#circle" startOffset="0%">
-                      BACKEND DEVELOPER • BACKEND DEVELOPER • 
+                  • BACKEND DEVELOPER • BACKEND DEVELOPER •
                     </textPath>
                   </text>
                 </svg>
@@ -245,6 +245,7 @@ function App() {
                 </div>
               </div>
             </div>
+            
           </div>
 
           {/* Center Content - Profile Image with Fantastic Background */}
@@ -323,7 +324,6 @@ function App() {
                 </div>
               </div>
             </div>
-            
             <button 
               onClick={() => scrollToSection('contact')}
               className={`${isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-800 hover:bg-gray-900 text-white'} px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center group shadow-xl hover:shadow-2xl transform hover:scale-105`}
@@ -331,6 +331,7 @@ function App() {
               Let's Connect
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
+            
           </div>
         </div>
       </section>
@@ -534,6 +535,13 @@ function App() {
                     <p className={themeClasses.textSecondary}>linkedin.com/in/saugat1070</p>
                   </div>
                 </div>
+                <button 
+              onClick={() => scrollToSection('contact')}
+              className={`${isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-orange-600 hover:bg-gray-900 text-white'} px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center group shadow-xl hover:shadow-2xl transform hover:scale-105`}
+            >
+              <a href="public/saugatGiri.pdf" target='_blank'>Download CV</a>
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
               </div>
 
               <form className="space-y-6">
