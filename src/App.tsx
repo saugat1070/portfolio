@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+"use client"
+
+import  { useState, useEffect } from 'react';
 import { 
-  Code, 
   Database, 
   Server, 
   Mail, 
@@ -10,18 +11,16 @@ import {
   Terminal,
   Cloud,
   Shield,
-  Zap,
-  ExternalLink,
   Moon,
   Sun,
   GraduationCap,
   ShoppingCart,
   Stethoscope,
-  Users,
-  Calendar,
   Star,
   FileUser
 } from 'lucide-react';
+import { FollowerPointerCard } from './components/ui/following-pointer';
+const FP = FollowerPointerCard;
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -127,8 +126,9 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${themeClasses.bg}`}>
-      {/* Navigation */}
+    <FP title={<div>Saugat</div>} className='relative'>
+      <div className={`min-h-screen transition-all duration-500 ${themeClasses.bg}`}>
+        {/* Navigation */}
       <nav className={`hidden md:block fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled ? `${themeClasses.navBg} backdrop-blur-md shadow-lg` : 'bg-transparent'
       }`}>
@@ -597,7 +597,8 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </FP>
   );
 }
 
