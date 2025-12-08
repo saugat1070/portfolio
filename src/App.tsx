@@ -1,6 +1,7 @@
 "use client"
 
 import  { useState, useEffect } from 'react';
+import TargetCursor from './components/TargetCursor';
 import { 
   Database, 
   Server, 
@@ -19,16 +20,17 @@ import {
   Star,
   FileUser
 } from 'lucide-react';
-import { FollowerPointerCard } from './components/ui/following-pointer';
-const FP = FollowerPointerCard;
+import Logo from './components/Logo';
+import Link from "react-dom";
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
+      // console.log(window.scrollY)
       setIsScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
@@ -118,7 +120,7 @@ function App() {
     textSecondary: isDarkMode ? 'text-gray-300' : 'text-gray-600',
     cardBg: isDarkMode ? 'bg-gray-800/80' : 'bg-white/80',
     cardHover: isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-white',
-    navBg: isDarkMode ? 'bg-gray-900/90' : 'bg-white/90',
+    navBg: isDarkMode ? 'bg-gray-900/90' : 'bg-white/60',
     sectionBg: isDarkMode ? 'bg-gray-800/50' : 'bg-white/50',
     border: isDarkMode ? 'border-gray-700' : 'border-gray-200',
     input: isDarkMode ? 'bg-gray-800/80 border-gray-600 text-white placeholder-gray-400' : 'bg-white/80 border-gray-200 text-gray-800 placeholder-gray-500',
@@ -126,15 +128,17 @@ function App() {
   };
 
   return (
-    <FP title={<div>Saugat</div>} className='relative'>
-      <div className={`min-h-screen transition-all duration-500 ${themeClasses.bg}`}>
+    
+    <div className={`min-h-screen transition-all duration-500 ${themeClasses.bg}`}>
+        <TargetCursor hideDefaultCursor={true} spinDuration={2}></TargetCursor> 
         {/* Navigation */}
-      <nav className={`hidden md:block fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? `${themeClasses.navBg} backdrop-blur-md shadow-lg` : 'bg-transparent'
+        <div className='flex justify-center'>
+      <nav className={`hidden md:block fixed top-6 w-[70%] z-50 transition-all duration-300 rounded-full  ${
+        isScrolled ? `${themeClasses.navBg} glass ` : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className={`text-2xl font-bold ${themeClasses.text}`}>
+        <div className={`max-w-7xl mx-auto`}>
+          <div className={`flex justify-between items-center px-10 py-4 `}>
+            <div className={`text-2xl font-bold ${themeClasses.text} cursor-target`}>
               <Terminal className="inline w-8 h-8 mr-2 text-orange-600" />
               Backend Dev
             </div>
@@ -149,7 +153,7 @@ function App() {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-sm font-medium transition-colors duration-200 ${
+                    className={`cursor-target text-sm font-medium transition-colors duration-200 ${
                       activeSection === item.id
                         ? 'text-orange-600'
                         : `${themeClasses.textSecondary} hover:${themeClasses.text}`
@@ -173,7 +177,7 @@ function App() {
           </div>
         </div>
       </nav>
-
+</div>
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Animated Background Elements */}
@@ -203,19 +207,19 @@ function App() {
           {/* Left Content */}
           <div className="lg:col-span-1 space-y-8 animate-fade-in">
             <div className="space-y-6">
-              <h1 className={`text-6xl lg:text-7xl font-bold ${themeClasses.text} leading-tight`}>
+              <h1 className={`cursor-target text-6xl lg:text-7xl font-bold ${themeClasses.text} leading-tight`}>
                 Hello.
               </h1>
               <div className="w-16 h-1 bg-gradient-to-r from-orange-600 to-red-600"></div>
               <div className="space-y-2">
                 <p className={`text-xl ${themeClasses.textSecondary} font-medium`}>I'm Saugat Giri</p>
-                <h2 className={`text-2xl lg:text-3xl font-bold ${themeClasses.text}`}>
+                <h2 className={`text-2xl lg:text-3xl font-bold ${themeClasses.text} cursor-target`}>
                    Backend Developer
                 </h2>
               </div>
             </div>
             
-            <div className={`${themeClasses.cardBg} backdrop-blur-sm rounded-2xl p-6 shadow-xl border ${themeClasses.border}`}>
+            <div className={`${themeClasses.cardBg} cursor-target backdrop-blur-sm rounded-2xl p-6 shadow-xl border ${themeClasses.border}`}>
               <div className="flex items-center space-x-3 mb-3">
                 <GraduationCap className="w-6 h-6 text-orange-600" />
                 <h3 className={`text-lg font-semibold ${themeClasses.text}`}>Currently Studying</h3>
@@ -307,7 +311,7 @@ function App() {
                 robust server-side applications and learning new technologies.
               </p>
               
-              <div className={`${themeClasses.cardBg} backdrop-blur-sm rounded-2xl p-6 shadow-xl border ${themeClasses.border}`}>
+              <div className={`${themeClasses.cardBg} backdrop-blur-sm rounded-2xl p-6 shadow-xl border cursor-target ${themeClasses.border}`}>
                 <h3 className={`text-lg font-semibold ${themeClasses.text} mb-4`}>Current Focus</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -327,7 +331,7 @@ function App() {
             </div>
             <button 
               onClick={() => scrollToSection('contact')}
-              className={`${isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-800 hover:bg-gray-900 text-white'} px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center group shadow-xl hover:shadow-2xl transform hover:scale-105`}
+              className={`cursor-target ${isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-800 hover:bg-gray-900 text-white'} px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center group shadow-xl hover:shadow-2xl transform hover:scale-105`}
             >
               Let's Connect
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -336,6 +340,10 @@ function App() {
           </div>
         </div>
       </section>
+      <div>
+          <Logo isDarkMode={isDarkMode} direction={"left"}/>
+        <Logo isDarkMode={isDarkMode} direction={"right"}/>
+      </div>
 
       {/* About Section */}
       <section id="about" className={`py-20 ${themeClasses.sectionBg}`}>
@@ -359,11 +367,11 @@ function App() {
               </p>
               
               <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className={`text-center p-6 ${themeClasses.cardBg} rounded-xl shadow-lg`}>
+                <div className={`text-center p-6 ${themeClasses.cardBg} rounded-xl shadow-lg cursor-target`}>
                   <div className="text-3xl font-bold text-orange-600 mb-2">10+</div>
                   <div className={themeClasses.textSecondary}>Projects Built</div>
                 </div>
-                <div className={`text-center p-6 ${themeClasses.cardBg} rounded-xl shadow-lg`}>
+                <div className={`text-center p-6 ${themeClasses.cardBg} rounded-xl shadow-lg cursor-target`}>
                   <div className="text-3xl font-bold text-orange-600 mb-2">1+</div>
                   <div className={themeClasses.textSecondary}>Years Learning</div>
                 </div>
@@ -379,7 +387,7 @@ function App() {
                 { skill: 'API Development', level: 60 },
                 { skill: 'Cloud Platforms', level: 30 }
               ].map((item, index) => (
-                <div key={index} className="space-y-2">
+                <div key={index} className="space-y-2 ">
                   <div className={`flex justify-between ${themeClasses.textSecondary}`}>
                     <span className="font-medium">{item.skill}</span>
                     <span>{item.level}%</span>
@@ -412,7 +420,7 @@ function App() {
             {services.map((service, index) => (
               <div 
                 key={index}
-                className={`${themeClasses.cardBg} p-8 rounded-xl ${themeClasses.cardHover} transition-all duration-300 group hover:transform hover:scale-105 shadow-lg hover:shadow-xl`}
+                className={`cursor-target ${themeClasses.cardBg} p-8 rounded-xl ${themeClasses.cardHover} transition-all duration-300 group hover:transform hover:scale-105 shadow-lg hover:shadow-xl`}
               >
                 <div className="text-orange-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
@@ -440,7 +448,7 @@ function App() {
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className={`${themeClasses.cardBg} rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group shadow-lg hover:shadow-xl`}
+                className={`cursor-target ${themeClasses.cardBg} rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group shadow-lg hover:shadow-xl`}
               >
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-6">
@@ -509,7 +517,7 @@ function App() {
               <div className="space-y-8">
                 <div className="flex items-center space-x-4">
                   <div className="bg-orange-600 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-white" />
+                    <Mail className="w-6 h-6 text-white cursor-target" />
                   </div>
                   <div>
                     <h3 className={`text-lg font-semibold ${themeClasses.text}`}>Email</h3>
@@ -519,7 +527,7 @@ function App() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="bg-orange-600 p-3 rounded-lg">
-                    <Github className="w-6 h-6 text-white" />
+                    <Github className="w-6 h-6 text-white cursor-target" />
                   </div>
                   <div>
                     <h3 className={`text-lg font-semibold ${themeClasses.text}`}>GitHub</h3>
@@ -529,7 +537,7 @@ function App() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="bg-orange-600 p-3 rounded-lg">
-                    <Linkedin className="w-6 h-6 text-white" />
+                    <Linkedin className="w-6 h-6 text-white cursor-target" />
                   </div>
                   <div>
                     <h3 className={`text-lg font-semibold ${themeClasses.text}`}>LinkedIn</h3>
@@ -550,26 +558,26 @@ function App() {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className={`w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200`}
+                    className={` cursor-target w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200`}
                   />
                 </div>
                 <div>
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className={`w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200`}
+                    className={`cursor-target w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200`}
                   />
                 </div>
                 <div>
                   <textarea
                     rows={5}
                     placeholder="Your Message"
-                    className={`w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200 resize-none`}
+                    className={`cursor-target w-full ${themeClasses.input} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors duration-200 resize-none`}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg font-medium transition-colors duration-200"
+                  className="cursor-target w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg font-medium transition-colors duration-200"
                 >
                   Send Message
                 </button>
@@ -598,7 +606,6 @@ function App() {
         </div>
       </div>
       </div>
-    </FP>
   );
 }
 
