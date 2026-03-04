@@ -178,7 +178,7 @@ function Election() {
           </div>
 
           <div className="relative mt-5 h-[430px] rounded-xl border border-slate-800 bg-slate-950/60 p-4">
-            <div className="pointer-events-none absolute inset-4">
+            <div className="pointer-events-none absolute inset-x-4 bottom-24 top-4">
               {[1, 0.75, 0.5, 0.25].map((ratio) => (
                 <div
                   key={ratio}
@@ -192,7 +192,7 @@ function Election() {
               ))}
             </div>
 
-            <div className="relative z-10 flex h-full items-end gap-3 pt-8">
+            <div className="relative z-10 flex h-full items-end gap-3 pb-24 pt-8">
               {candidates.map((candidate, index) => {
                 const currentVotes = displayedVotes[index] ?? 0;
                 const currentBarHeight = getAnimatedBarHeight(candidate.votes);
@@ -236,6 +236,26 @@ function Election() {
                   </div>
                 );
               })}
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-4 bottom-4 z-20">
+              <div className="flex items-end gap-3">
+                {candidates.map((candidate) => (
+                  <div key={`${candidate.id}-flag`} className="flex flex-1 justify-center">
+                    <div className="h-14 w-14 overflow-hidden rounded-md border border-slate-700 bg-slate-900/90 p-1">
+                      <img
+                        src={candidate.partyImageUrl}
+                        alt={`${candidate.party} flag`}
+                        className="h-full w-full object-contain"
+                        onError={(event) => {
+                          event.currentTarget.onerror = null;
+                          event.currentTarget.src = candidate.partyImageFallbackUrl;
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
