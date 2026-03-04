@@ -170,7 +170,7 @@ function Election() {
           </div>
           <p className="text-center text-xs font-semibold tracking-[0.3em] text-slate-300">LIVE BATTLE</p>
           <h1 className="mt-2 text-center text-3xl font-bold">NEPAL ELECTION 2026</h1>
-          <p className="mt-1 text-center text-sm font-medium text-cyan-300">Kasi-1</p>
+          <p className="mt-1 text-center text-sm font-medium text-cyan-300">Kaski-1</p>
 
           <div className="mt-4 rounded-xl bg-slate-950/70 p-3">
             <p className="text-center text-xs text-slate-300">Total Votes Counted</p>
