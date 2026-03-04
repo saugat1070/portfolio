@@ -20,7 +20,7 @@ const candidates: Candidate[] = [
     candidateImage: '/image-3.png',
     partyImageUrl: 'https://rspnepal.org/_next/static/media/white-logo.6762f420.svg',
     partyImageFallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg',
-    votes: 34700,
+    votes: 20820,
     barClass: 'bg-blue-500',
     accentClass: 'text-blue-300'
   },
@@ -31,7 +31,7 @@ const candidates: Candidate[] = [
     candidateImage: '/image-2.png',
     partyImageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_CPN_(UML).svg',
     partyImageFallbackUrl: 'https://logo.clearbit.com/cpnuml.org',
-    votes: 63200,
+    votes: 37920,
     barClass: 'bg-red-500',
     accentClass: 'text-red-300'
   },
@@ -42,19 +42,9 @@ const candidates: Candidate[] = [
     candidateImage: '/image-1.png',
     partyImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Nepali_Congress_flag_edited.svg',
     partyImageFallbackUrl: 'https://nepalicongress.org/logo.svg',
-    votes: 82900,
+    votes: 49740,
     barClass: 'bg-green-500',
     accentClass: 'text-green-300'
-  },
-  {
-    id: 4,
-    name: 'Othes',
-    party: 'अन्य',
-    partyImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg',
-    partyImageFallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg',
-    votes: 8000,
-    barClass: 'bg-amber-500',
-    accentClass: 'text-amber-300'
   }
 ];
 
