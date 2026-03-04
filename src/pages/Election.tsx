@@ -31,7 +31,7 @@ const candidates: Candidate[] = [
     candidateImage: '/image-2.png',
     partyImageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_CPN_(UML).svg',
     partyImageFallbackUrl: 'https://logo.clearbit.com/cpnuml.org',
-    votes: 37920,
+    votes: 27920,
     barClass: 'bg-red-500',
     accentClass: 'text-red-300'
   },
@@ -42,7 +42,7 @@ const candidates: Candidate[] = [
     candidateImage: '/image-1.png',
     partyImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Nepali_Congress_flag_edited.svg',
     partyImageFallbackUrl: 'https://nepalicongress.org/logo.svg',
-    votes: 49740,
+    votes: 39740,
     barClass: 'bg-green-500',
     accentClass: 'text-green-300'
   }
